@@ -214,6 +214,7 @@ begin
     SetEnableGPU            := FIniFIle.ReadBool  ('Path Defines', 'GPU',                 True);
     SetLogSeverity          := FIniFIle.ReadBool  ('Path Defines', 'Log Severity',        False);
     LogConsoleActive        := FIniFIle.ReadBool  ('Path Defines', 'Log Console Active',  False);
+
     PathFrameworkDirPath    := FIniFIle.ReadString('Path Defines', 'FrameWork', '');
     PathResourcesDirPath    := FIniFIle.ReadString('Path Defines', 'Binary',    '');
     PathLocalesDirPath      := FIniFIle.ReadString('Path Defines', 'Locales',   '');
@@ -228,7 +229,7 @@ begin
   Self.ResourcesDirPath   := '';
   Self.LocalesDirPath     := 'locales';
   Self.cache              := 'cache';
-  Self.UserDataPath       := 'User Data';
+//  Self.PathUserDataPath   := 'User Data';
 end;
 
 
@@ -248,7 +249,7 @@ begin
     Self.ResourcesDirPath   := '';
     Self.LocalesDirPath     := 'locales';
     Self.cache              := 'cache';
-    Self.UserDataPath       := 'User Data';
+    Self.PathUserDataPath   := 'User Data';
   except
 
   end;
@@ -411,7 +412,7 @@ begin
   If Pathcache            <> '' then
      Self.cache               := Pathcache;
   If PathUserDataPath     <> '' then
-     Self.UserDataPath        := PathUserDataPath;
+     Self.PathUserDataPath    := PathUserDataPath;
   If PathLogFile          <> '' then
      Self.LogFile             := PathLogFile;
   If SetLogSeverity then
@@ -422,7 +423,7 @@ begin
   UpdateIniFile('Path Defines', 'Binary',        Self.ResourcesDirPath);
   UpdateIniFile('Path Defines', 'Locales',       Self.LocalesDirPath);
   UpdateIniFile('Path Defines', 'Cache',         Self.cache);
-  UpdateIniFile('Path Defines', 'Data User',     Self.UserDataPath);
+  UpdateIniFile('Path Defines', 'Data User',     Self.PathUserDataPath);
   UpdateIniFile('Path Defines', 'Log File',      Self.LogFile);
   UpdateIniFile('Path Defines', 'Log Console',   LogConsole);
 

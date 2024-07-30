@@ -1177,8 +1177,8 @@ procedure TFrmConsole.Chromium1BeforePopup(Sender: TObject;
 begin
 // bloqueia todas as janelas pop-up e novas guias
   ShellExecute(Handle, 'open', PChar(targetUrl), '', '', 1);
-  Result := (targetDisposition in [WOD_NEW_FOREGROUND_TAB, WOD_NEW_BACKGROUND_TAB, WOD_NEW_POPUP, WOD_NEW_WINDOW]);
-  //Result := (targetDisposition in [CEF_WOD_NEW_FOREGROUND_TAB, CEF_WOD_NEW_BACKGROUND_TAB, CEF_WOD_NEW_POPUP, CEF_WOD_NEW_WINDOW]);
+//  Result := (targetDisposition in [WOD_NEW_FOREGROUND_TAB, WOD_NEW_BACKGROUND_TAB, WOD_NEW_POPUP, WOD_NEW_WINDOW]);
+  Result := (targetDisposition in [CEF_WOD_NEW_FOREGROUND_TAB, CEF_WOD_NEW_BACKGROUND_TAB, CEF_WOD_NEW_POPUP, CEF_WOD_NEW_WINDOW]);
 end;
 
 procedure TFrmConsole.Chromium1Close(Sender: TObject;
@@ -1554,8 +1554,8 @@ procedure TFrmConsole.Chromium1OpenUrlFromTab(Sender: TObject;
   out Result: Boolean);
 begin
  //Bloqueia popup do windows e novas abas
-  Result := (targetDisposition in [WOD_NEW_FOREGROUND_TAB, WOD_NEW_BACKGROUND_TAB, WOD_NEW_POPUP, WOD_NEW_WINDOW]);
-  //Result := (targetDisposition in [CEF_WOD_NEW_FOREGROUND_TAB, CEF_WOD_NEW_BACKGROUND_TAB, CEF_WOD_NEW_POPUP, CEF_WOD_NEW_WINDOW]);
+//  Result := (targetDisposition in [WOD_NEW_FOREGROUND_TAB, WOD_NEW_BACKGROUND_TAB, WOD_NEW_POPUP, WOD_NEW_WINDOW]);
+  Result := (targetDisposition in [CEF_WOD_NEW_FOREGROUND_TAB, CEF_WOD_NEW_BACKGROUND_TAB, CEF_WOD_NEW_POPUP, CEF_WOD_NEW_WINDOW]);
 end;
 
 procedure TFrmConsole.Chromium1TitleChange(Sender: TObject;
@@ -1686,7 +1686,7 @@ begin
       raise Exception.Create(MSG_ConfigCEF_ExceptBrowse);
     end else
     begin
-      Chromium1.OnConsoleMessage        := Chromium1ConsoleMessage;
+//      Chromium1.OnConsoleMessage        := Chromium1ConsoleMessage;
       Chromium1.OnOpenUrlFromTab        := Chromium1OpenUrlFromTab;
       Chromium1.OnTitleChange           := Chromium1TitleChange;
     end;
